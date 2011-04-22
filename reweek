@@ -11,7 +11,11 @@ FORMAT = "{0} ({1:%a})"
 
 
 def main(text):
-    print EXPR.sub(replace_match, text)
+    sys.stdout.write(replace_text(text))
+    sys.stdout.flush()
+
+def replace_text(text):
+    return EXPR.sub(replace_match, text)
 
 def replace_match(match):
     date = datetime.date(*[int(match.group(i)) for i in (1,2,3)])
