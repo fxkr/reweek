@@ -8,7 +8,7 @@ setup(name='reweek',
   author='Felix Kaiser',
   author_email='felix.kaiser@fxkr.net',
   url='none.invalid',
-  scripts=['reweek'],
+  scripts=['reweek.py'],
   classifiers=[
     'License :: OSI Approved :: BSD License',
   ],
