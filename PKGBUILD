@@ -1,9 +1,9 @@
 # Contributor: Felix Kaiser <felix.kaiser@fxkr.net>
 
 pkgname=reweek
-pkgver=0.1.1
+pkgver=0.2.0
 pkgrel=1
-pkgdesc="adds the weekday to all yyyy-mm-dd strings in a text"
+pkgdesc="reformats date specifiers in a text"
 arch=('any')
 license=('MIT')
 depends=('python2')

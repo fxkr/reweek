@@ -107,7 +107,7 @@ if __name__ == '__main__':
         sys.stdout.write(main(sys.argv[1]))
     else:
         sys.stderr.write(textwrap.dedent("""
-            reweek -- reformats yyyy-mm-dd strings in a text
+            reweek -- reformats date specifiers in a text
 
             usage:
               {0} text
