@@ -2,6 +2,7 @@
 # Copyright (C) 2011 Felix Kaiser
 # License: revised BSD
 
+import argparse
 import datetime
 import re
 import sys
@@ -93,27 +94,17 @@ def _replace_datespec(date1, date2, hints):
 
 
 def main(text):
-    try:
-        return change(text)
-    except:
-        sys.stdout.write(text)
-        raise
+    par = argparse.ArgumentParser(
+        description='Reformat date strings in a text.')
+    par.add_argument("file", nargs="?",
+        type=argparse.FileType('r'), default=sys.stdin,
+        help="Path of the file. Defaults to standard input.")
+    args = par.parse_args()
+    sys.stdout.write(change(args.file.read()))
+    sys.stdout.flush()
+    sys.exit(0)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 1:
-        sys.stdout.write(main(sys.stdin.read()))
-    elif len(sys.argv) == 2 and sys.argv[1].lower() not in ("-h", "--help", "-?"):
-        sys.stdout.write(main(sys.argv[1]))
-    else:
-        sys.stderr.write(textwrap.dedent("""
-            reweek -- reformats date specifiers in a text
-
-            usage:
-              {0} text
-              {0} < input_file > output_file
-            """.format(sys.argv[0])))
-        sys.exit(2)
-    sys.stdout.flush()
-    sys.exit(0)
+    main(sys.argv)
 
